@@ -46,6 +46,9 @@ export class Part2Component {
     let playersM = [];
     let playersF = [];
 
+    //check for letters only
+    var regEx_LetterOnly = /^[A-Za-z]+$/;
+
     for (let i = 0; i < csvRecordsArray.length; i++) {  
 
       let curruntRecord = (<string>csvRecordsArray[i]).split(',');  
@@ -62,6 +65,15 @@ export class Part2Component {
       else{
 
         alert("Issue with data in csv, please make sure it is in the format of \"PlayerName,Gender\"");
+        this.fileReset();
+        return;
+
+      }
+
+      //making sure player names are alphabets/letters only
+      if(!curruntRecord[0].trim().match(regEx_LetterOnly)){
+
+        alert("Issue with data in csv, please make sure that player names contain alphabets only");
         this.fileReset();
         return;
 
