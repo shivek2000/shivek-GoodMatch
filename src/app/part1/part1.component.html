@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <p>Please enter names of players below and we will check their match percentage</p>
+    <br>
+    <form (submit)="onCheckMatch(part1)" #part1="ngForm">
+
+        <input style="width: 25%; margin: 0 auto;" class="form-control" type="text" ngModel name="firstName" placeholder="Enter first name to match" required #firstName = "ngModel">
+    
+        <br>
+    
+        <input style="width: 25%; margin: 0 auto;" class="form-control" type="text" ngModel name="secondName" placeholder="Enter second name to match" required #secondName = "ngModel">
+    
+        <br>
+    
+        <button class="btn btn-primary" type="submit">Check</button>
+    
+    </form>
+</div>

@@ -1,0 +1,8 @@
+<ul style="text-align: left;">
+    <li>Please enter a csv file below and we will generate a text file of results</li>
+    <li>Please note that the data in the csv file must match the following code: "PlayerName,Gender"</li>
+    <li>If it does not match this we will throw a validation error</li>
+    <li>Upon successful processing the results will be stored in a text file called output.txt in the root of this project's directory</li>
+</ul>
+<br>
+<input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" />
