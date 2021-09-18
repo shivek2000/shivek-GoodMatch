@@ -28,8 +28,18 @@ export class Part1Component {
     this.secondName = Part1Form.value.secondName;
 
     const names: Part1Names = {firstName: this.firstName, secondName: this.secondName};
+    
+    //check for letters only
+    var regEx_LetterOnly = /^[A-Za-z]+$/;
 
-    this.http.post<{message: string}>("http://localhost:3000/api/checkNames", names).subscribe((res) =>{
+    if(!this.firstName.match(regEx_LetterOnly) || !this.secondName.match(regEx_LetterOnly)){
+
+      alert("Please enter alphabets/letters only");
+
+    }
+
+    else{
+      this.http.post<{message: string}>("http://localhost:3000/api/checkNames", names).subscribe((res) =>{
 
       this.matchPercentage = res.message;
 
@@ -46,6 +56,7 @@ export class Part1Component {
       }
 
     });
+    }
 
   }
 
